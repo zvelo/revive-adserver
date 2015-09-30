@@ -1,0 +1,6 @@
+/.nginx-image-stamp
+/.php-image-stamp
+/revive-adserver-*.tar.gz
+/revive-adserver-*/
+/revive-adserver-dev-rc.yaml
+/revive-adserver-dev-svc.yaml
