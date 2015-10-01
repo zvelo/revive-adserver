@@ -20,36 +20,23 @@ spec:
       restartPolicy: Always
       containers:
         - name: php-fpm
-          image: zvelo/revive-adserver-php-fpm
-          imagePullPolicy: Never
+          image: zvelo/revive-adserver-php-fpm:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 9000
           volumeMounts:
-            - mountPath: /var/www/var
-              name: var
-            - mountPath: /var/www/plugins
-              name: plugins
-            - mountPath: /var/www/www/admin/plugins
-              name: adminplugins
-            - mountPath: /var/www/www/images
-              name: images
-        - name: nginx
-          image: zvelo/revive-adserver
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 80
-          volumeMounts:
+            - mountPath: /data
+              name: data
             - name: ssl-certs
               mountPath: /etc/ssl/certs
               readOnly: true
+        - name: nginx
+          image: zvelo/revive-adserver:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
       volumes:
-        - name: var
-          emptyDir: {}
-        - name: plugins
-          emptyDir: {}
-        - name: adminplugins
-          emptyDir: {}
-        - name: images
+        - name: data
           emptyDir: {}
         - name: ssl-certs
           hostPath:
