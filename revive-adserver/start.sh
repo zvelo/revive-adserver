@@ -22,13 +22,4 @@ fi
 echo -ne "# Deny all users web access to this directory\nDeny from all" > /var/www/var/.htaccess
 chown www-data:www-data /var/www/var/.htaccess
 
-cat << END > /etc/ssmtp/ssmtp.conf
-Mailhub=${SMTP_SERVER}
-AuthUser=${SMTP_USER}
-AuthPass=${SMTP_PASS}
-UseTLS=${SMTP_TLS}
-UseSTARTTLS=${SMTP_TLS}
-FromLineOverride=yes
-END
-
-exec php-fpm
+exec nginx "$@"

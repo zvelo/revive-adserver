@@ -24,6 +24,15 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
+          env:
+            - name: SMTP_SERVER
+              value: <SMTP_SERVER>:<SMTP_PORT>
+            - name: SMTP_USER
+              value: <SMTP_USER>
+            - name: SMTP_PASS
+              value: <SMTP_PASS>
+            - name: SMTP_TLS
+              value: "yes"
           volumeMounts:
             - mountPath: /data
               name: data

@@ -29,4 +29,14 @@ clean:
 		.php-image-stamp \
 		.nginx-image-stamp
 
-.PHONY: images nginx-image php-image clean
+push: .php-push-stamp .nginx-push-stamp
+
+.php-push-stamp: .php-image-stamp
+	docker push zvelo/revive-adserver-php-fpm:latest
+	@touch .php-push-stamp
+
+.nginx-push-stamp: .nginx-image-stamp
+	docker push zvelo/revive-adserver:latest
+	@touch .nginx-push-stamp
+
+.PHONY: images nginx-image php-image clean push
