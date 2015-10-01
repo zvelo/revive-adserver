@@ -4,7 +4,7 @@ images: php-image nginx-image
 
 nginx-image: .nginx-image-stamp
 
-.nginx-image-stamp: revive-adserver-$(REVIVE_ADSERVER_VERSION) revive-adserver/Dockerfile revive-adserver/nginx.conf
+.nginx-image-stamp: revive-adserver-$(REVIVE_ADSERVER_VERSION) revive-adserver/Dockerfile revive-adserver/nginx.conf revive-adserver/start.sh
 	cp -a revive-adserver-$(REVIVE_ADSERVER_VERSION) revive-adserver/
 	docker build -t zvelo/revive-adserver revive-adserver
 	rm -rf revive-adserver/revive-adserver-$(REVIVE_ADSERVER_VERSION)
@@ -27,7 +27,9 @@ revive-adserver-$(REVIVE_ADSERVER_VERSION): revive-adserver-$(REVIVE_ADSERVER_VE
 clean:
 	@rm -f \
 		.php-image-stamp \
-		.nginx-image-stamp
+		.nginx-image-stamp \
+		.php-push-stamp \
+		.nginx-push-stamp
 
 push: .php-push-stamp .nginx-push-stamp
 

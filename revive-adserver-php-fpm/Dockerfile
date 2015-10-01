@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV REVIVE_ADSERVER_VERSION 3.2.1
 COPY revive-adserver-$REVIVE_ADSERVER_VERSION/ /var/www/
 COPY php.ini /usr/local/etc/php/
+COPY php-fpm.conf /usr/local/etc/
 COPY start.sh /usr/local/bin/
 ENTRYPOINT ["start.sh"]
 CMD [""]
