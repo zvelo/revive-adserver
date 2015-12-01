@@ -19,7 +19,7 @@ php-image: .php-image-stamp
 	@touch .php-image-stamp
 
 revive-adserver-$(REVIVE_ADSERVER_VERSION).tar.gz:
-	wget http://download.revive-adserver.com/revive-adserver-$(REVIVE_ADSERVER_VERSION).tar.gz
+	wget --no-check-certificate https://download.revive-adserver.com/revive-adserver-$(REVIVE_ADSERVER_VERSION).tar.gz
 
 revive-adserver-$(REVIVE_ADSERVER_VERSION): revive-adserver-$(REVIVE_ADSERVER_VERSION).tar.gz
 	tar zxf revive-adserver-$(REVIVE_ADSERVER_VERSION).tar.gz
