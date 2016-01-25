@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:5-fpm
 MAINTAINER Joshua Rubin <jrubin@zvelo.com>
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
