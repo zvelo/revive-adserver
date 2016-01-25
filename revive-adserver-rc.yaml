@@ -44,9 +44,14 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+            - containerPort: 443
+          volumeMounts:
+            - mountPath: /data
+              name: data
+              readOnly: true
       volumes:
         - name: data
           emptyDir: {}
         - name: ssl-certs
           hostPath:
-            path: "/etc/ssl/certs"
+            path: /etc/ssl/certs

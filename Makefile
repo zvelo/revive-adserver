@@ -1,4 +1,4 @@
-REVIVE_ADSERVER_VERSION ?= 3.2.1
+REVIVE_ADSERVER_VERSION ?= 3.2.2
 
 images: php-image nginx-image
 

@@ -9,3 +9,8 @@ spec:
     name: revive-adserver
   ports:
   - port: 80
+    name: http
+    nodePort: 31313
+  - port: 443
+    name: https
+    nodePort: 31315

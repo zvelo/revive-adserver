@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install gd \
     && docker-php-ext-install mysql \
     && docker-php-ext-install pgsql
-ENV REVIVE_ADSERVER_VERSION 3.2.1
+ENV REVIVE_ADSERVER_VERSION 3.2.2
 COPY revive-adserver-$REVIVE_ADSERVER_VERSION/ /var/www/
 COPY php.ini /usr/local/etc/php/
 COPY php-fpm.conf /usr/local/etc/
